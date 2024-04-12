@@ -1,0 +1,27 @@
+.container {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+}
+.btn {
+  width: 200;
+  height: fit-content;
+}
+.groupAll {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.svg {
+  fill: #000;
+  stroke: #000;
+}
+.groupSvg {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

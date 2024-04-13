@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 
 import css from './ContactForm.module.css';
-const FeedbackSchema = Yup.object().shape({
+const ValidationSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, 'Too Short!')
     .max(50, 'Too Long!')
@@ -35,7 +35,7 @@ export default function ContactForm({ onAdd }) {
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={FeedbackSchema}
+      validationSchema={ValidationSchema}
     >
       <Form className={css.form}>
         <label className={css.lable} htmlFor={nameId}>

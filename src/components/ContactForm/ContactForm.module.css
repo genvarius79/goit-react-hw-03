@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.field {
+  width: 100%;
+  border: 1px solid rgb(133, 130, 130);
+  border-radius: 3px;
+  font-size: 16px;
+}
+.btn {
+  width: fit-content;
+  margin-top: 10px;
+  align-self: center;
+}
+.lable {
+  margin-top: 10px;
+}

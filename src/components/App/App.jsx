@@ -15,7 +15,12 @@ export default function App() {
 
   const [items, setItems] = useState(data);
   const [filter, setFilter] = useState('');
-
+  const handleAddcard = newCard => {
+    console.log(newCard);
+    setItems(prevItems => {
+      return [...prevItems, newCard];
+    });
+  };
   const deleteItem = itemId => {
     setItems(prevItems => {
       return prevItems.filter(item => item.id !== itemId);
@@ -29,7 +34,7 @@ export default function App() {
     <>
       <div className={css.container}>
         <h1 className={css.h1}>Phonebook</h1>
-        <ContactForm />
+        <ContactForm onAdd={handleAddcard} />
         <SearchBox value={filter} onFilter={setFilter} />
         <ContactList items={visibleItems} onDelete={deleteItem} />
       </div>

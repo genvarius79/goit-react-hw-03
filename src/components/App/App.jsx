@@ -2,7 +2,7 @@ import './App.module.css';
 import ContactForm from '../ContactForm/ContactForm';
 import SearchBox from '../SearchBox/SearchBox';
 import ContactList from '../ContactList/ContactList';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import css from './App.module.css';
 
 export default function App() {
@@ -13,10 +13,13 @@ export default function App() {
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ];
 
-  const [items, setItems] = useState(data);
+  const [items, setItems] = useState(() => {
+    const savedItems = localStorage.getItem('items');
+    return savedItems !== null ? JSON.parse(savedItems) : data;
+  });
+
   const [filter, setFilter] = useState('');
   const handleAddcard = newCard => {
-    console.log(newCard);
     setItems(prevItems => {
       return [...prevItems, newCard];
     });
@@ -30,6 +33,11 @@ export default function App() {
   const visibleItems = items.filter(item =>
     item.name.toLowerCase().includes(filter.toLowerCase())
   );
+
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
+
   return (
     <>
       <div className={css.container}>

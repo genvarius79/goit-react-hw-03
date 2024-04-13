@@ -25,9 +25,9 @@ export default function ContactForm({ onAdd }) {
   const numberId = nanoid();
   const handleSubmit = (values, actions) => {
     onAdd({
+      id: nameId,
       name: values.name,
       number: values.number,
-      id: nameId,
     });
     actions.resetForm();
   };
@@ -42,13 +42,13 @@ export default function ContactForm({ onAdd }) {
           Name
         </label>
         <Field className={css.field} type="text" name="name" id={nameId} />
-        <ErrorMessage name="name" component="span" />
+        <ErrorMessage className={css.error} name="name" component="span" />
 
         <label className={css.lable} htmlFor={numberId}>
           Number
         </label>
         <Field className={css.field} type="tel" name="number" id={numberId} />
-        <ErrorMessage name="number" component="span" />
+        <ErrorMessage className={css.error} name="number" component="span" />
         <button className={css.btn} type="submit">
           Add contact
         </button>

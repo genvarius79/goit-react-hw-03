@@ -1,20 +1,17 @@
 import css from './Contact.module.css';
-import svg from '../../img/icons.svg';
+import { MdPerson, MdCall } from 'react-icons/md';
+
 export default function Contact({ data: { id, name, number }, onDelete }) {
   return (
     <div className={css.container}>
       <div className={css.groupAll}>
-        <div className={css.groupSvg}>
-          <svg className={css.svg} width="24" height="24">
-            <use href={svg + '#icon-user'}></use>
-          </svg>
+        <div className={css.groupImg}>
+          <MdPerson color="#00000" size={22} />
 
           <p>{name}</p>
         </div>
-        <div className={css.groupSvg}>
-          <svg className={css.svg} width="24" height="24">
-            <use href={svg + '#icon-phone'}></use>
-          </svg>
+        <div className={css.groupImg}>
+          <MdCall color="#00000" size={22} />
 
           <p>{number}</p>
         </div>

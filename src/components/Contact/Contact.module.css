@@ -16,11 +16,8 @@
   flex-direction: column;
   gap: 10px;
 }
-.svg {
-  fill: #000;
-  stroke: #000;
-}
-.groupSvg {
+
+.groupImg {
   display: flex;
   gap: 10px;
   align-items: center;
